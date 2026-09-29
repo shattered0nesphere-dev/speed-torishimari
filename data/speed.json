@@ -1,12 +1,1 @@
-{
-  "directory": "https://www.npa.go.jp/link/prefectural.html",
-  "items": [
-    {
-      "pref": "兵庫県",
-      "city": "",
-      "title": "兵庫県警察 速度管理指針",
-      "summary": "兵庫県警察が公表する速度管理・速度取締りの考え方。警察署ごとの速度取締り指針への案内があります。",
-      "url": "https://www.police.pref.hyogo.lg.jp/traffic/violation/speedsisin/data/guideline.pdf"
-    }
-  ]
-}
+{"items":[{"pref":"兵庫県","city":"神戸市","police_station":"生田警察署","period":"2026年1月～6月","source_type":"verified_speed","source":"兵庫県警察・生田警察署速度取締指針","url":"https://www.police.pref.hyogo.lg.jp/traffic/violation/speedsisin/data/04.pdf","routes":[{"route":"国道2号","time":"6:00～22:00","speed":"50km/h","reason":"交通事故発生件数が多いため"},{"route":"山手幹線","time":"6:00～20:00","speed":"50km/h","reason":"交通事故発生件数が多いため"}],"notes":["重点以外の路線・時間帯でも速度違反取締りを実施すると明記されています。","規制速度は区間によって異なる場合があります。"]}]}
