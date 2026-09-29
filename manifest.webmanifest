@@ -1,1 +1,1 @@
-{"name": "速度取締り情報", "short_name": "速度取締り", "start_url": "./", "display": "standalone", "background_color": "#f3f5f7", "theme_color": "#0b5cab", "lang": "ja"}
+{"name":"速度取締り情報（自分専用）","short_name":"速度取締り","start_url":"./","display":"standalone","background_color":"#f3f4f6","theme_color":"#111827","icons":[{"src":"icons/icon-180.png","sizes":"180x180","type":"image/png"}]}
