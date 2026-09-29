@@ -1,0 +1,1 @@
+const C="speed-v1";self.addEventListener("install",e=>e.waitUntil(caches.open(C).then(c=>c.addAll(["./","./index.html","./style.css","./app.js","./manifest.webmanifest","./data/speed.json","./icons/icon-180.png"]))));self.addEventListener("fetch",e=>{if(!e.request.url.includes("/data/speed.json"))e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request)))})
