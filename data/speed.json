@@ -1,0 +1,12 @@
+{
+  "directory": "https://www.npa.go.jp/link/prefectural.html",
+  "items": [
+    {
+      "pref": "兵庫県",
+      "city": "",
+      "title": "兵庫県警察 速度管理指針",
+      "summary": "兵庫県警察が公表する速度管理・速度取締りの考え方。警察署ごとの速度取締り指針への案内があります。",
+      "url": "https://www.police.pref.hyogo.lg.jp/traffic/violation/speedsisin/data/guideline.pdf"
+    }
+  ]
+}
