@@ -3,8 +3,8 @@ const PASS_HASH='03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f
 const P=['北海道','青森県','岩手県','宮城県','秋田県','山形県','福島県','茨城県','栃木県','群馬県','埼玉県','千葉県','東京都','神奈川県','新潟県','富山県','石川県','福井県','山梨県','長野県','岐阜県','静岡県','愛知県','三重県','滋賀県','京都府','大阪府','兵庫県','奈良県','和歌山県','鳥取県','島根県','岡山県','広島県','山口県','徳島県','香川県','愛媛県','高知県','福岡県','佐賀県','長崎県','熊本県','大分県','宮崎県','鹿児島県','沖縄県'];
 let D={items:[]},X={items:[]},W={items:[]},R=JSON.parse(localStorage.getItem('speed_regions')||'[]'),current={pref:'兵庫県',city:'神戸市'};
 const $=id=>document.getElementById(id);
-async function sha(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
-async function unlock(){const h=await sha($('pw').value);const stored=localStorage.getItem('speed_auth');if(h===stored||h===PASS_HASH){localStorage.setItem('speed_auth',h);$('lock').hidden=true;$('app').hidden=false;load()}else{$('lockmsg').textContent='パスワードが違います。';$('lockmsg').className='danger'}}
+async function sha(s){try{if(!window.crypto?.subtle) return '';const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}catch(e){return ''}}
+async function unlock(){const input=$('pw').value.trim();if(input==='1234'){localStorage.setItem('speed_auth','ok');$('lock').hidden=true;$('app').hidden=false;load();return}const h=await sha(input);const stored=localStorage.getItem('speed_auth');if(h===stored||h===PASS_HASH){localStorage.setItem('speed_auth',h);$('lock').hidden=true;$('app').hidden=false;load()}else{$('lockmsg').textContent='パスワードが違います。';$('lockmsg').className='danger'}}
 $('unlock').onclick=unlock;$('pw').addEventListener('keydown',e=>{if(e.key==='Enter')unlock()});
 $('logout').onclick=()=>{localStorage.removeItem('speed_auth');location.reload()};
 P.forEach(x=>$('pref').insertAdjacentHTML('beforeend',`<option>${x}</option>`));$('pref').value=current.pref;$('city').value=current.city;
