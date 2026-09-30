@@ -1,5 +1,5 @@
 <!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#111827"><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="style.css"><title>速度取締り情報</title></head><body>
-<div id="lock" class="lock"><div class="lockbox"><h1>速度取締り情報</h1><p>自分専用ページです。</p><input id="pw" type="password" inputmode="numeric" placeholder="パスワード"><button id="unlock">開く</button><p id="lockmsg"></p></div></div>
+<div id="lock" class="lock"><div class="lockbox"><h1>速度取締り情報</h1><p>自分専用ページです。</p><input id="pw" type="password" inputmode="numeric" placeholder="パスワード"><button id="unlock" type="button">開く</button><p id="lockmsg"></p></div></div>
 <div id="app" hidden><header><h1>速度取締り情報</h1><div class="small">自分専用モード</div></header><main>
 <section class="panel"><h2>地域選択</h2><div class="row"><select id="pref"></select><input id="city" placeholder="市区町村（任意）"></div><button id="show">表示</button><button id="save">この地域を登録</button><button id="logout" class="sub">ロック</button><div id="regions"></div></section>
 <section><h2>警察公式情報</h2><div id="official"></div></section>
@@ -7,4 +7,12 @@
 <section><h2>X情報</h2><div id="xinfo"></div></section>
 <section><h2>Googleマップ</h2><div id="maps"></div></section>
 <section class="notice"><b>注意</b><br>表示対象は公開された情報です。実際の取締りは変更される場合があります。非公開の取締り場所・時間を推測するためには使用しません。</section>
-</main></div><script src="app.js?v=051"></script></body></html>
+</main></div><script>
+(function(){
+  const b=document.getElementById('unlock'), i=document.getElementById('pw'), l=document.getElementById('lock'), a=document.getElementById('app'), m=document.getElementById('lockmsg');
+  function openPage(){ if(i.value.trim()==='1234'){ localStorage.setItem('speed_auth','ok'); l.hidden=true; a.hidden=false; location.reload(); } else { m.textContent='パスワードが違います。'; } }
+  b.addEventListener('click',openPage); i.addEventListener('keydown',e=>{if(e.key==='Enter')openPage();});
+  if(localStorage.getItem('speed_auth')==='ok'){l.hidden=true;a.hidden=false;}
+  if('serviceWorker' in navigator){ navigator.serviceWorker.register('sw-v052.js').catch(()=>{}); }
+})();
+</script><script src="app-v052.js"></script></body></html>
